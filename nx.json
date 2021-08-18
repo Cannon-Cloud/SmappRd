@@ -33,6 +33,13 @@
     "admin-e2e": {
       "tags": [],
       "implicitDependencies": ["admin"]
+    },
+    "web": {
+      "tags": []
+    },
+    "web-e2e": {
+      "tags": [],
+      "implicitDependencies": ["web"]
     }
   }
 }
