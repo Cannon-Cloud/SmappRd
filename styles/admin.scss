@@ -9,10 +9,12 @@
 //Fonts
 @import './base/configuration.scss';
 
+//Shared
+
+@import './apps/admin/dashboard.scss';
+@import './apps/admin/shell.scss';
 //Libraries
 @import '~primeicons/primeicons.css';
 @import '~primeng/resources/themes/saga-blue/theme.css';
 @import '~primeng/resources/primeng.min.css';
 @import '~primeflex/primeflex.scss';
-
-//Shared

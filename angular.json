@@ -117,6 +117,31 @@
         }
       }
     },
+    "companies": {
+      "projectType": "library",
+      "root": "libs/companies",
+      "sourceRoot": "libs/companies/src",
+      "prefix": "smapp",
+      "architect": {
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/companies"],
+          "options": {
+            "jestConfig": "libs/companies/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": [
+              "libs/companies/src/**/*.ts",
+              "libs/companies/src/**/*.html"
+            ]
+          }
+        }
+      }
+    },
     "web": {
       "projectType": "application",
       "root": "apps/web",
@@ -258,7 +283,8 @@
     "@nrwl/angular:library": {
       "style": "scss",
       "linter": "eslint",
-      "unitTestRunner": "jest"
+      "unitTestRunner": "jest",
+      "strict": false
     },
     "@nrwl/angular:component": {
       "style": "scss"

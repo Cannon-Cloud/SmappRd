@@ -1,0 +1,87 @@
+<p-toast></p-toast>
+<div class="admin-page">
+  <p-card
+    [header]="editMode ? 'Edit Copany' : 'Add Company'"
+    subheader="You can add or edit companies here"
+  >
+    <div class="p-grid p-mb-5">
+      <div class="p-col-12">
+        <p-toolbar>
+          <div class="class p toolbar group left"></div>
+          <div class="p-toolbar-group-right">
+            <p-button
+              styleClass="p-button-primary p-mr-2"
+              [label]="editMode ? 'Update' : 'Create'"
+              icon="pi pi-plus"
+              (click)="onSubmit()"
+            ></p-button>
+            <p-button
+              styleClass="p-button-secondary"
+              label="Cancel"
+              icon="pi pi-arrow-circle-left"
+              (click)="onCancel()"
+            ></p-button>
+          </div>
+        </p-toolbar>
+      </div>
+    </div>
+    <div class="p-grid">
+      <div class="p-col-12">
+        <form [formGroup]="form">
+          <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col">
+              <label for="title">Title</label>
+              <input
+                formControlName="title"
+                id="title"
+                type="text"
+                pInputText
+              />
+              <small
+                *ngIf="companyForm.title.invalid && isSubmitted"
+                class="p-error"
+                >Name is required</small
+              >
+            </div>
+            <div class="p-field p-col">
+              <label for="description">Description</label>
+              <input
+                formControlName="description"
+                id="description"
+                type="text"
+                pInputText
+              />
+              <small
+                *ngIf="companyForm.description.invalid && isSubmitted"
+                class="p-error"
+                >Icon is required</small
+              >
+            </div>
+            <div class="p-field p-col">
+              <label for="city">City</label>
+              <input formControlName="city" id="city" type="text" pInputText />
+              <small
+                *ngIf="companyForm.city.invalid && isSubmitted"
+                class="p-error"
+                >Icon is required</small
+              >
+            </div>
+            <div class="p-field p-col">
+              <label for="status">Status</label>
+              <p-dropdown
+                [disabled]="!editMode"
+                [options]="statusObjects"
+                formControlName="status"
+                optionLabel="status"
+                optionValue="status"
+                filterBy="status"
+                [showClear]="true"
+                placeholder="Select a Status"
+              ></p-dropdown>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </p-card>
+</div>
